@@ -1,0 +1,5 @@
+Recommended Approach
+✔ Frontend & Backend: Use Deployments instead of StatefulSets.
+✔ If backend needs persistent storage: Use PVC but not StatefulSet.
+✔ For databases: Use StatefulSet + PVC with an appropriate StorageClass.
+
