@@ -64,7 +64,7 @@ spec:
       - name: mysql
         image: pradeepgorle/mysql:1.0.0
         volumeMounts:
-          name: mysql
+        - name: mysql
           mountPath: var/lib/mysql
 # Instead of creating a  PVC resource, you can you can directly provide the PVC here in statefulset template itself like below.
   volumeClaimTemplates:
