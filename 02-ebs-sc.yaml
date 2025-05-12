@@ -3,5 +3,5 @@ kind: StorageClass
 metadata:
   name: ebs-sc
 provisioner: ebs.csi.aws.com
-# reclaimPolicy: Retain. default is delete. Iam giving default to avoid charges when I forget to remove them manually.
+reclaimPolicy: Delete # Iam giving delete to avoid charges when I forget to remove them manually
 volumeBindingMode: WaitForFirstConsumer
