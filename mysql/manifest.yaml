@@ -19,7 +19,7 @@ spec:
     port: 3306 # Service Port
     targetPort: 3306
 ---
-apiVersion: apps/v1 
+apiVersion: v1 
 kind: Service
 metadata:
   name: mysql
@@ -38,7 +38,7 @@ spec:
     port: 3306 # Service Port
     targetPort: 3306
 ---
-apiVersion: v1 
+apiVersion: apps/v1v1 
 kind: StatefulSet
 metadata:
   name: mysql
