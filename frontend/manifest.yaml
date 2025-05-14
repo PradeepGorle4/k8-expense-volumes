@@ -96,6 +96,15 @@ spec:
       containers:
       - name: frontend
         image: pradeepgorle/frontend:1.2.0
+        resources:
+    # Soft Limit
+      requests:
+        memory: "70Mi" # Mi is mebibytes 1Mi = 1.048 Mb - these units are case sensitive
+        cpu: "100m" # m is millicore. so 100m is 0.1 core or 10% of 1 core
+    # Hard Limit
+      limits:
+        memory: "100Mi"
+        cpu: "150m"
         ports:
         - containerPort: 8080
         volumeMounts:
@@ -121,5 +130,23 @@ spec:
     port: 80 # Service port
     targetPort: 8080 # We are giving port out of system ports 0-1024 as we are running this manifest file as non-root user. 
     # It won't have access to take system ports
-    
-  
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoScaler
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: utilization
+        averageUtilization: 5 # just for testing
