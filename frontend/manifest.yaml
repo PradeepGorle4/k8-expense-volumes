@@ -132,7 +132,7 @@ spec:
     # It won't have access to take system ports
 ---
 apiVersion: autoscaling/v2
-kind: HorizontalPodAutoScaler
+kind: HorizontalPodAutoscaler
 metadata:
   name: frontend
   namespace: expense
