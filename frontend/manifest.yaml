@@ -98,13 +98,13 @@ spec:
         image: pradeepgorle/frontend:1.2.0
         resources:
     # Soft Limit
-      requests:
-        memory: "70Mi" # Mi is mebibytes 1Mi = 1.048 Mb - these units are case sensitive
-        cpu: "100m" # m is millicore. so 100m is 0.1 core or 10% of 1 core
-    # Hard Limit
-      limits:
-        memory: "100Mi"
-        cpu: "150m"
+          requests:
+            memory: "70Mi" # Mi is mebibytes 1Mi = 1.048 Mb - these units are case sensitive
+            cpu: "100m" # m is millicore. so 100m is 0.1 core or 10% of 1 core
+        # Hard Limit
+          limits:
+            memory: "100Mi"
+            cpu: "150m"
         ports:
         - containerPort: 8080
         volumeMounts:
