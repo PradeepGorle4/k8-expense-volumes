@@ -148,5 +148,5 @@ spec:
     resource:
       name: cpu
       target:
-        type: utilization
+        type: Utilization
         averageUtilization: 5 # just for testing
